@@ -1,5 +1,16 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import '@/assets/reset.css'
+import '@/assets/common.sass'
+import HomeView from '@/views/HomeView.vue'
+import LayoutWrapper from '@/components/LayoutWrapper.vue'
+</script>
 
-<template>12345</template>
+<template>
+  <LayoutWrapper>
+    <template #content>
+      <HomeView />
+    </template>
+  </LayoutWrapper>
+</template>
 
 <style scoped></style>
