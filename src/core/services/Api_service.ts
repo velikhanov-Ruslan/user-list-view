@@ -4,7 +4,7 @@ axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com'
 
 class ApiService {
   public static async get<T = any, R = AxiosResponse<T>>(resource: string): Promise<R> {
-    return axios.get<T, R>(resource)
+    return await axios.get<T, R>(resource)
   }
 }
 

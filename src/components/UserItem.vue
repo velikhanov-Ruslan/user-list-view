@@ -2,6 +2,7 @@
 import type { User } from '@/models/User'
 import type { UserTitle } from '@/models/user-model'
 import { ref } from 'vue'
+import UserContent from '@/components/UserContent.vue'
 
 const is_active_visible = ref<boolean>(false)
 
@@ -12,6 +13,8 @@ const props = defineProps<{
 const emit = defineEmits<{
   (e: 'on_click_user', id: number): void
 }>()
+
+const db_data = ref(props.data)
 
 function handle_click_user() {
   is_active_visible.value = !is_active_visible.value
@@ -25,24 +28,31 @@ function handle_click_user() {
     class="user-item"
     :class="{ active: is_active_visible }"
   >
-    <template v-for="title in title_list" :key="title.value">
-      <div class="user-item__text">
-        {{ data[title.value] }}
-      </div>
-    </template>
+    <div class="user-item__head">
+      <template v-for="title in title_list" :key="title.value">
+        <div class="user-item__text">
+          {{ data[title.value] }}
+        </div>
+      </template>
+    </div>
   </div>
+  <UserContent v-if="is_active_visible" :info="db_data" />
 </template>
 
 <style scoped lang="sass">
 .user-item
-  display: flex
-  align-items: center
   font-size: 14px
   line-height: 16px
   padding: 12px 51px
   border: 1px solid #FFD200
   cursor: pointer
   position: relative
+  color: #696969
+
+  &__head
+    display: flex
+    align-items: center
+
 
   &:after,
   &:before
