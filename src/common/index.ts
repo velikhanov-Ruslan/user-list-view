@@ -3,19 +3,23 @@ import type { UserContent } from '@/models/user-model'
 
 export const sections = ref<UserContent[]>([
   {
-    title: 'Address',
+    title: 'address',
     items: [
       {
-        name: 'Street'
+        name: 'Street',
+        value: 'street'
       },
       {
-        name: 'Suite'
+        name: 'Suite',
+        value: 'suite'
       },
       {
-        name: 'City'
+        name: 'City',
+        value: 'city'
       },
       {
-        name: 'Zipcode'
+        name: 'Zipcode',
+        value: 'zipcode'
       }
     ]
   },
@@ -23,13 +27,16 @@ export const sections = ref<UserContent[]>([
     title: 'company',
     items: [
       {
-        name: 'Name'
+        name: 'Name',
+        value: 'name'
       },
       {
-        name: 'CatchPhrase'
+        name: 'CatchPhrase',
+        value: 'catchPhrase'
       },
       {
-        name: 'Bs'
+        name: 'Bs',
+        value: 'bs'
       }
     ]
   },
@@ -37,19 +44,20 @@ export const sections = ref<UserContent[]>([
     title: 'BASIC INFO',
     items: [
       {
-        name: 'Name'
+        name: 'Name',
+        value: 'person'
       },
       {
-        name: 'Username'
+        name: 'Username',
+        value: 'username'
       },
       {
-        name: 'Email'
+        name: 'email',
+        value: 'email'
       },
       {
-        name: 'Phone'
-      },
-      {
-        name: 'Website'
+        name: 'Website',
+        value: 'website'
       }
     ]
   }

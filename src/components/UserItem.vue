@@ -10,15 +10,11 @@ const props = defineProps<{
   data: User
   title_list: UserTitle[]
 }>()
-const emit = defineEmits<{
-  (e: 'on_click_user', id: number): void
-}>()
 
 const db_data = ref(props.data)
 
 function handle_click_user() {
   is_active_visible.value = !is_active_visible.value
-  emit('on_click_user', props.data.id)
 }
 </script>
 

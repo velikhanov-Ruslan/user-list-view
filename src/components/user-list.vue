@@ -20,10 +20,6 @@ onBeforeMount(async () => {
     console.log(e)
   }
 })
-
-function on_click_user(id: number): void {
-  console.log(id)
-}
 </script>
 
 <template>
@@ -38,7 +34,6 @@ function on_click_user(id: number): void {
       :key="user.id"
       :data="user"
       :title_list="titles"
-      @on_click_user="on_click_user"
     />
   </div>
 </template>
