@@ -1,16 +1,17 @@
-# The Docker image that will be used to build your app
-image: nn
-# Functions that should be executed before the build script is run
+image: node:18.16.0
+
+cache:
+  paths:
+    - node_modules/
+
 before_script:
-  - ci
+  - npm install 
+  - test -e package.json && npm install
+  - hexo generate
+
 pages:
   script:
-    - cii
+    - npm run build
   artifacts:
     paths:
-      # The folder that contains the files to be exposed at the Page URL
-      - public
-  rules:
-    # This ensures that only pushes to the default branch will trigger
-    # a pages deploy
-    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+      - dist
